@@ -44,6 +44,7 @@ const App = () => {
   const getQuery = e => {
     e.preventDefault();
     setQuery(search);
+    setSearch(''); // Set it to empty after the button has been clicked
   }
 
   return(
@@ -58,7 +59,8 @@ const App = () => {
                 key = {recipes.recipe.label}
                  title = {recipes.recipe.label}
                   calories = {recipes.recipe.calories} 
-                  image = {recipes.recipe.image}/>
+                  image = {recipes.recipe.image}
+                  ingredients = {recipes.recipe.ingredients}/>
       ))}
     </div>
   
