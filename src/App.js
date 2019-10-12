@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import logo from './logo.svg';
+import {Recipe} from './Recipe';
 import './App.css';
 import { get } from 'https';
 
@@ -11,7 +12,7 @@ const App = () => {
   const exampleRequest = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free`
 
 
-  //Create a state here
+  //Create a state here. Everything is stored in the "recipes" that comes from the API.
   const [recipes,setRecipies]  = useState([]);
 
   // This is the function that will run everytime(useEffect)
@@ -24,6 +25,7 @@ const App = () => {
     const response = await fetch(exampleRequest);
     const data = await response.json();
     setRecipies(data.hits);
+    console.log(data.hits);
   }
 
   return(
@@ -33,8 +35,13 @@ const App = () => {
         <input type='text' className='search-bar'/>
         <button type='submit' className='search-button'>Search</button>
       </form>
+      {recipes.map(recipes => (
+          <Recipe title = {recipes.recipe.label}
+                  calories = {recipes.recipe.calories} 
+                  image = {recipes.recipe.image}/>
+      ))}
     </div>
-
+  
   );
 }
 
