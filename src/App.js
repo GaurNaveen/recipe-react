@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import logo from './logo.svg';
-import {Recipe} from './Recipe';
+import Recipe from './Recipe';
 import './App.css';
 import { get } from 'https';
 
@@ -54,6 +54,7 @@ const App = () => {
         <input type='text' className='search-bar' value={search} onChange = {updateSearch}/>
         <button type='submit' className='search-button'>Search</button>
       </form>
+      <div className='recipe'>
       {recipes.map(recipes => (
           <Recipe
                 key = {recipes.recipe.label}
@@ -62,8 +63,9 @@ const App = () => {
                   image = {recipes.recipe.image}
                   ingredients = {recipes.recipe.ingredients}/>
       ))}
+      </div>
     </div>
-  
+
   );
 }
 

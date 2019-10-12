@@ -1,9 +1,12 @@
 import React from 'react';
+import style from './recipe.css';
+
 
 // {title,calories,img} are value of the tags that are passed from App.js.
-export const Recipe = ({title,calories,image,ingredients}) => {
+ const Recipe = ({title,calories,image,ingredients}) => {
     return (
-        <div>
+        <div className="recipes" >
+            
             <h1>{title}</h1>
             <ol>
                 {ingredients.map(ingredients => (
@@ -11,7 +14,9 @@ export const Recipe = ({title,calories,image,ingredients}) => {
                 ))}
             </ol>
             <p>{calories}</p>
-            <img src = {image} alt=""/>
+            <img className={style.image} src = {image} alt=""/>
         </div>
     );
-}
+};
+
+export default Recipe;
