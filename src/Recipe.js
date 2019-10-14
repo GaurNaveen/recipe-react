@@ -23,6 +23,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
   const useStyles = makeStyles(theme => ({
     card: {
       maxWidth: 345,
+      height: 550,
     },
     media: {
       height: 0,
@@ -45,7 +46,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 
 // {title,calories,img} are value of the tags that are passed from App.js.
- const Recipe = ({title,calories,image,ingredients}) => {
+ const Recipe = ({title,calories,image,ingredients,releaseDate}) => {
      console.log(image);
     const classes = useStyles();
     const [expanded, setExpanded] = React.useState(false);
@@ -57,7 +58,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
     return (
         <div className = "card">
         <Card className= {classes.card}>
-            <CardHeader title = {title} subheader = "This is a delicious recipe" />
+            <CardHeader title = {title} subheader = "" />
 
             <CardMedia
         className={classes.media}
@@ -68,42 +69,12 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
         <CardContent>
                 <Typography variant="body2" color="textSecondary" component="p">
                 {ingredients}
+               <br />
+               <br />
+               <b> Release Date: </b> {releaseDate} 
                 </Typography>
         </CardContent>
 
-        <CardActions disableSpacing>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>Method:</Typography>
-          <Typography paragraph>
-            {title}
-          </Typography>
-          <Typography paragraph>
-            {title}
-          </Typography>
-          <Typography paragraph>
-            Add rice and stir very gently to distribute. Top with artichokes and peppers, and cook
-            without stirring, until most of the liquid is absorbed, 15 to 18 minutes. Reduce heat to
-            medium-low, add reserved shrimp and mussels, tucking them down into the rice, and cook
-            again without stirring, until mussels have opened and rice is just tender, 5 to 7
-            minutes more. (Discard any mussels that don’t open.)
-          </Typography>
-          <Typography>
-            Set aside off of the heat to let rest for 10 minutes, and then serve.
-          </Typography>
-        </CardContent>
-      </Collapse>
         </Card>
         </div>
         

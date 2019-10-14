@@ -63,7 +63,8 @@ const App = () => {
                   title = {recipes.title}
                     //calories = {recipes.recipe.calories} 
                     image = {"http://image.tmdb.org/t/p/w185/"+recipes.poster_path}
-                    ingredients = {recipes.overview}/>
+                    ingredients = {recipes.overview}
+                    releaseDate = {recipes.release_date}/>
       ))}
       </div>
     </div>
