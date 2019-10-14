@@ -1,10 +1,11 @@
 .App {
+  margin-top: -25px;
   min-height: 100vh;
    background-color: #040C2C;
 }
 
 .search-form {
-  padding-top: 20px;
+  padding-top: 10px;
   min-height: 15vh;
   display: flex;
   justify-content: center;
@@ -35,7 +36,8 @@
     justify-content: space-around;
     background: white;
     align-items: center;
-    min-width: 40%;
+    min-width: 10%;
+    max-width: 40%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -45,4 +47,14 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.heading {
+  padding-top: 8px;
+  color: white;
+  text-align: center;
+}
+
+.image {
+  float: left;
 }

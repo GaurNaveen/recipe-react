@@ -29,6 +29,7 @@ const App = () => {
 
   // Create a function that will be used to make async calls and fetch recipes from the API.
   const getRecipes = async () => {
+
     const response = await fetch(exampleRequest);
     const data = await response.json();
     setRecipies(data.hits);
@@ -48,8 +49,9 @@ const App = () => {
   }
 
   return(
-
     <div className="App">
+      <h1 className="heading">Search for any recipes !</h1>
+
       <form onSubmit = {getQuery} className="search-form">
         <input type='text' className='search-bar' value={search} onChange = {updateSearch}/>
         <button type='submit' className='search-button'>Search</button>
@@ -57,14 +59,15 @@ const App = () => {
       <div className='recipe'>
       {recipes.map(recipes => (
           <Recipe
-                key = {recipes.recipe.label}
-                 title = {recipes.recipe.label}
-                  calories = {recipes.recipe.calories} 
-                  image = {recipes.recipe.image}
-                  ingredients = {recipes.recipe.ingredients}/>
+                  key = {recipes.recipe.label}
+                  title = {recipes.recipe.label}
+                    calories = {recipes.recipe.calories} 
+                    image = {recipes.recipe.image}
+                    ingredients = {recipes.recipe.ingredients}/>
       ))}
       </div>
     </div>
+  
 
   );
 }
