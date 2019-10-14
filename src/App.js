@@ -19,7 +19,7 @@ const App = () => {
   // Const create state for the search button that contains the query.
   const [query,setQuery] = useState('chicken');
 
-  const exampleRequest = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}&from=0&to=3&calories=591-722&health=alcohol-free`
+  const exampleRequest = "https://api.themoviedb.org/3/movie/upcoming?api_key=fc018f9654a75af338a6a99476f7e8f3&language=en-US&page=1";
 
 
   // This is the function that will run everytime(useEffect)
@@ -32,8 +32,8 @@ const App = () => {
 
     const response = await fetch(exampleRequest);
     const data = await response.json();
-    setRecipies(data.hits);
-    console.log(data.hits);
+    setRecipies(data.results);
+    console.log(data.results);
   }
 
   // e means event
@@ -59,15 +59,14 @@ const App = () => {
       <div className='recipe'>
       {recipes.map(recipes => (
           <Recipe
-                  key = {recipes.recipe.label}
-                  title = {recipes.recipe.label}
-                    calories = {recipes.recipe.calories} 
-                    image = {recipes.recipe.image}
-                    ingredients = {recipes.recipe.ingredients}/>
+                  key = {recipes.id}
+                  title = {recipes.title}
+                    //calories = {recipes.recipe.calories} 
+                    image = {"http://image.tmdb.org/t/p/w185/"+recipes.poster_path}
+                    ingredients = {recipes.overview}/>
       ))}
       </div>
     </div>
-  
 
   );
 }

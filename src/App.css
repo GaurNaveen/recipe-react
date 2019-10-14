@@ -58,3 +58,9 @@
 .image {
   float: left;
 }
+
+.card card {
+  padding: 2px;
+  padding-bottom: 10px;
+  height: 200px;
+}
